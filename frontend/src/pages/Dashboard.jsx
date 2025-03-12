@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, MapPin, Menu, X, ChevronRight, Users, Award, BarChart , Star} from 'lucide-react';
+import { BookOpen, FileText, MapPin, Menu, X, ChevronRight, Users, Award, BarChart , Star,LogOut} from 'lucide-react';
 import Logo from '../assets/PrepLogo.png'
 import Name from '../assets/PrepName.png'
 
@@ -33,18 +33,18 @@ const Dashboard = () => {
           <div className="flex justify-between h-20 items-center">
             {/* Logo */}
             <div className="flex items-center group cursor-pointer">
-              <div className="flex-shrink-0">
+              <div className="ml- 0">
               <img 
                   src={Logo} 
                   alt="Aspirio Logo" 
-                  className="h-12 w-12 object-contain transform transition-all duration-300 group-hover:rotate-12 rounded-2xl"
+                  className="h-14 w-14 object-contain transform transition-all duration-300 group-hover:rotate-12 rounded-2xl"
                 />
               </div>
-              <div className="ml-3">
+              <div className="ml-1">
                 <img 
                   src={Name} 
                   alt="Aspirio" 
-                  className="h-8 object-contain transition-all duration-300 group-hover:scale-105"
+                  className="h-20 object-contain transition-all duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -55,7 +55,8 @@ const Dashboard = () => {
                 { to: "/resume", icon: FileText, label: "Resume" },
                 { to: "/exam-prep", icon: BookOpen, label: "Exam Prep" },
                 { to: "/roadmap", icon: MapPin, label: "Roadmap" },
-                { to: "/interview-prep", icon: MapPin, label: "Interview Prep" }
+                { to: "/interview-prep", icon: MapPin, label: "Interview Prep" },
+                { to: "/Auths", icon: LogOut, label: "Logout " }
               ].map(({ to, icon: Icon, label }) => (
                 <Link
                   key={to}
@@ -101,7 +102,7 @@ const Dashboard = () => {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-600 bg-size-200 animate-gradient-x">
+      <div className="pt-24 bg-radial-gradient from-black via-purple-900 to-black bg-size-200 animate-gradient-x" style={{ background: 'radial-gradient(circle, black 0%, purple 50%, black 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
@@ -223,15 +224,24 @@ const Dashboard = () => {
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold mb-4">Company</h4>
-              <div className="space-y-2">
-                {['About', 'Blog', 'Careers', 'Press'].map(item => (
-                  <a key={item} href="#" className="block text-gray-400 hover:text-white transition-colors duration-200">
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
+  <h4 className="text-lg font-semibold mb-4">Company</h4>
+  <div className="space-y-2">
+    {[
+      { name: 'About', url: '/about' },
+      { name: 'Blog', url: '/blog' },
+      { name: 'Careers', url: '/careers' },
+      { name: 'Press', url: '#' } // Keep 'Press' as a placeholder for now
+    ].map(item => (
+      <a
+        key={item.name}
+        href={item.url}
+        className="block text-gray-400 hover:text-white transition-colors duration-200"
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+</div>
             
             <div>
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
@@ -250,12 +260,22 @@ const Dashboard = () => {
               © 2025 Aspirio. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              {['Twitter', 'LinkedIn', 'GitHub'].map(social => (
-                <a key={social} href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  {social}
-                </a>
-              ))}
-            </div>
+  {[
+    { name: 'Twitter', url: 'https://twitter.com' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com' },
+    { name: 'GitHub', url: 'https://github.com' }
+  ].map(social => (
+    <a
+      key={social.name}
+      href={social.url}
+      className="text-gray-400 hover:text-white transition-colors duration-200"
+      target="_blank" // Opens the link in a new tab
+      rel="noopener noreferrer" // Recommended for security when using target="_blank"
+    >
+      {social.name}
+    </a>
+  ))}
+</div>
           </div>
         </div>
       </footer>

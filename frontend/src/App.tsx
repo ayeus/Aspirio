@@ -29,6 +29,7 @@ export default function App() {
         <Route path="/exam-prep" element={<InterviewPrep />} />
         <Route path="/resume" element={<ResumeBuilder />} />
         <Route path="/interview-prep" element={<MockInterviewPrep />} />
+        <Route path="/Auths" element={<LandingPage />} />
       </Routes>
     </Router> 
     </>

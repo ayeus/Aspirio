@@ -23,8 +23,11 @@ const InterviewPrep = () => {
           className="text-center mb-8"
         >
           {/* Change the text color to white */}
-          <SparklesText>Master Your Exam With Aspirio</SparklesText>
-        </motion.div>
+          
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+  Master Your Exam With Aspirio
+</h1>
+</motion.div>
 
         {/* Glass Effect Container */}
         <div className="relative w-11/12 max-w-4xl h-5/6 backdrop-blur-sm bg-white/10 rounded-xl shadow-2xl border border-white/20 overflow-hidden">
